@@ -1,0 +1,9 @@
+.reasons {
+    margin: 92px auto 98px;
+    max-width: 1184px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    background: chartreuse;
+}

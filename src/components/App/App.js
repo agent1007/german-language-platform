@@ -1,6 +1,11 @@
 import Header from '../Header/header';
 import Promo from '../Promo/Promo';
 import Reasons from '../Reasons/Reasons';
+import Testing from '../Testing/Testing';
+import Footer from '../Footer/Footer';
+import data from '../Data/data';
+
+
 
 function App() {
   return (
@@ -8,10 +13,12 @@ function App() {
       <div className="body">
 
         <div className="page">
-          <Header />
+          {/* <Header />
           <Promo />
-          
-          <Reasons />
+          <Reasons /> */}
+
+          <Testing 
+          data={data}/>
 
 
         </div>
@@ -21,7 +28,7 @@ function App() {
 
 
 
-      
+
     </div>
   );
 }

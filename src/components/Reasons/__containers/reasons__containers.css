@@ -1,0 +1,7 @@
+.reasons__containers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    width: 90%;
+}

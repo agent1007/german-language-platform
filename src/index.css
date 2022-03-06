@@ -29,3 +29,30 @@
 @import url(./components/Footer/__links/footer__links.css);
 @import url(./components/Footer/__title/footer__title.css);
 @import url(./components/Footer/footer.css);
+
+@import url(./components/Popup/popup.css);
+@import url(./components/Popup/_opened/popup_opened.css);
+@import url(./components/Popup/_type/_image/popup_type_image.css);
+@import url(./components/Popup/__container-image/popup__container-image.css);
+@import url(./components/Popup/__image/popup__image.css);
+@import url(./components/Popup/__close-button/popup__close-button.css);
+@import url(./components/Popup/__close-button-image/popup__close-button-image.css);
+@import url(./components/Popup/__image-caption/popup__image-caption.css);
+
+
+@import url(./components/Testing/testing.css);
+@import url(./components/Testing/__container-variants/testing__container-variants.css);
+@import url(./components/Testing/__container/testing__container.css);
+@import url(./components/Testing/__question/testing__question.css);
+@import url(./components/Testing/__submit-button/testing__submit-button.css);
+@import url(./components/Testing/__title/testing__title.css);
+@import url(./components/Testing/__variant-button/testing__variant-button.css);
+@import url(./components/Testing/__variant-text/testing__variant-text.css);
+@import url(./components/Testing/__variants/testing__variants.css);
+
+
+
+
+
+
+

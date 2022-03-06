@@ -1,39 +1,30 @@
 const data = {
-    "testName":"Типы данных",
-    "questions":[
+   "testName": "Тест на перевод немецких слов.",
+   "questions": [
       {
-      "title":"Константа?",
-      "code": "___ d = 123;",
-      "variants" : [
-         {"title": "const", "flag": true},
-         {"title": "var"},
-         {"title": "let"}
-      ]
+         "title": "Как переводится слово Arbeiten?",
+         "variants": [
+            { "title": "Работать.", "flag": true },
+            { "title": "Бегать." },
+            { "title": "Прыгать." }
+         ]
       },
-       {
-      "title":"какой тип имеет переменная d?",
-      "code": "let d;",
-      "variants" : [
-         {"title": "undefined", "flag": true},
-         {"title": "null"},
-         {"title": "number"}
-      ]
+      {
+         "title": "Besuchen?",
+         "variants": [
+            { "title": "Посещать.", "flag": true },
+            { "title": "Друг." },
+            { "title": "Номер." }
+         ]
       },
-       {
-      "title":"Тест вопроса с чекбоксами",
-      "code": "",
-      "variants" : [
-         {"title": "вариант1", "flag": true},
-         {"title": "вариант2", "flag": true},
-         {"title": "вариант3"}
-      ]
-      },{
-      "title":"Как называется оператор создающий константу",
-      "code": "",
-      "variants" : [
-         {"text": "1", "flag": "const"}
-      ]
+      {
+         "title": "Kugelschreibe?",
+         "variants": [
+            { "title": "Ручка.", "flag": true },
+            { "title": "Озеро." },
+            { "title": "Шар." }
+         ]
       }
-    ]
-    }
-    export default data;
+   ]
+}
+export default data;

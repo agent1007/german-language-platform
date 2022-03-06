@@ -1,9 +1,10 @@
 .popup__container-image{
     margin: 90px;
-    max-width: 865px;
+    max-width: 80%;
+    max-height: 50%;
     position: relative;
-    display: grid;
-    grid-template-columns: minmax(min-content, max-content) 0px;
+    display: flex;
+    flex-direction: row;
     padding: 0px;
 }
 

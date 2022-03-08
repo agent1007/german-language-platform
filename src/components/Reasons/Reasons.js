@@ -1,19 +1,20 @@
-function Reasons({ Image, onCardClick }) {
+function Reasons({ ElementsReasons, onElementClick }) {
 
     let j = 0;
-    let image = Image.map(function (e, i) {
+    let image = ElementsReasons.map(function (e, i) {
         j++;
 
         function handleClick() {
-            onCardClick({
-                image: e.image,
+            onElementClick({
+                url: e.url,
                 title: e.title,
-                information: e.information
+                information: e.information,
+                id: e.id
             })
-         
+
         }
-        return <div className="reasons__container" >
-            <img className="reasons__image" src={e.image} alt={e.subtitle} id={"id" + j} onClick={handleClick}/>
+        return <div className="reasons__container" key={e.id}>
+            <img className="reasons__image" src={e.url} alt={e.subtitle} id={"id" + j} onClick={handleClick} />
             <p className="reasons__subtitle">{e.title}</p>
         </div>
     })

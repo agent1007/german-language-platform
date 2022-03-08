@@ -1,26 +1,32 @@
+import { useState } from 'react';
+import { Route } from 'react-router-dom';
+
 import Header from '../Header/header';
 import Promo from '../Promo/Promo';
 import Reasons from '../Reasons/Reasons';
 import Testing from '../Testing/Testing';
 import Footer from '../Footer/Footer';
-import data from '../Data/data';
+import ElementsTest from '../ElementsTest/ElementsTest';
 
-import { useState, useEffect, useCallback } from 'react';
+
 import ImagePopup from '../Popup/ImagePopup';
-import Image from '../Image/Image';
+import ElementsReasons from '../ElementsReasons/ElementsReasons';
 
 
 
 function App() {
 
-  const [selectedCard, setSelectedCard] = useState(false);
+  // стейт элементов для ImapePopup
+  const [selectedElement, setSelectedElement] = useState(false);
 
 
-  function handleCardClick(card) {
-    setSelectedCard(card);
+  function handleElementClick(element) {
+    setSelectedElement(element);
   }
+
+  // функция закрытия любого попапа
   function closeAllPopups() {
-    setSelectedCard(false);
+    setSelectedElement(false);
   }
 
 
@@ -31,21 +37,22 @@ function App() {
 
         <div className="page">
           <Header />
-          {/* <Promo />
-          <Reasons
-            Image={Image}
-            onCardClick={handleCardClick}
-          /> */}
-
-          <Testing 
-          data={data}/>
-
-
+          <Route exact path="/">
+            <Promo />
+            <Reasons
+              ElementsReasons={ElementsReasons}
+              onElementClick={handleElementClick}
+            />
+          </Route>
+          <Route path="/testing">
+            <Testing
+              ElementsTest={ElementsTest} />
+          </Route>
         </div>
         <Footer />
 
         <ImagePopup
-          card={selectedCard}
+          card={selectedElement}
           onClose={closeAllPopups}
         />
 

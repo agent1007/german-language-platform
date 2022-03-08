@@ -1,4 +1,4 @@
-const data = {
+const ElementsTest = {
    "testName": "Тест на перевод немецких слов.",
    "questions": [
       {
@@ -7,7 +7,8 @@ const data = {
             { "title": "Работать.", "flag": true },
             { "title": "Бегать." },
             { "title": "Прыгать." }
-         ]
+         ],
+         id: 1
       },
       {
          "title": "Besuchen?",
@@ -15,7 +16,8 @@ const data = {
             { "title": "Посещать.", "flag": true },
             { "title": "Друг." },
             { "title": "Номер." }
-         ]
+         ],
+         id: 2
       },
       {
          "title": "Kugelschreibe?",
@@ -23,8 +25,9 @@ const data = {
             { "title": "Ручка.", "flag": true },
             { "title": "Озеро." },
             { "title": "Шар." }
-         ]
+         ],
+         id: 3
       }
    ]
 }
-export default data;
+export default ElementsTest;

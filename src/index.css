@@ -1,13 +1,15 @@
  @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
 @import url(./components/Body/body.css);
-/* @import url(./components/Page/page.css); */
+@import url(./components/page/page.css);
 @import url(./components/Header/header.css);
 @import url(./components/Header/__logo/header__logo.css); 
 @import url(./components/Header/__title/header__title.css); 
 @import url(./components/Header/__container/header__container.css); 
 @import url(./components/Header/__button-enter/header__button-enter.css); 
 @import url(./components/Header/__button-register/header__button-register.css); 
+@import url(./components/Header/__button-testing/header__button-testing.css); 
+@import url(./components/Header/__testing/header__testing.css); 
 
 @import url(./components/Promo/__container/promo__container.css); 
 @import url(./components/Promo/__image/promo__image.css);
@@ -50,6 +52,9 @@
 @import url(./components/Testing/__variant-text/testing__variant-text.css);
 @import url(./components/Testing/__variants/testing__variants.css);
 
+
+@import url(./components/ButtonNextQuestion/button-next-question.css);
+@import url(./components/ButtonNextQuestion/_block/button-next-question_block.css);
 
 
 

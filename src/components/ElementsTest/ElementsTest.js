@@ -4,30 +4,61 @@ const ElementsTest = {
       {
          "title": "Как переводится слово Arbeiten?",
          "variants": [
-            { "title": "Работать.", "flag": true },
-            { "title": "Бегать." },
-            { "title": "Прыгать." }
+            {
+               "title": "Работать.",
+               "flag": true,
+               id: 1
+            },
+            {
+               "title": "Бегать.",
+               id: 2
+            },
+            {
+               "title": "Прыгать.",
+               id: 3
+            }
          ],
          id: 1
       },
       {
          "title": "Besuchen?",
          "variants": [
-            { "title": "Посещать.", "flag": true },
-            { "title": "Друг." },
-            { "title": "Номер." }
+            {
+               "title": "Посещать.",
+               "flag": true,
+               id: 1
+            },
+            {
+               "title": "Друг.",
+               id: 2
+            },
+            {
+               "title": "Номер.",
+               id: 3
+            }
          ],
          id: 2
       },
       {
          "title": "Kugelschreibe?",
          "variants": [
-            { "title": "Ручка.", "flag": true },
-            { "title": "Озеро." },
-            { "title": "Шар." }
+            {
+               "title": "Ручка.",
+               "flag": true,
+               id: 1
+            },
+            {
+               "title": "Друг.",
+               id: 2
+            },
+            {
+               "title": "Номер.",
+               id: 3
+            }
          ],
          id: 3
-      }
+      },
+      
    ]
 }
 export default ElementsTest;

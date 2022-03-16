@@ -1,4 +1,4 @@
-.button-next-question{
+.buttons-test{
     width: 89%;
     height: 36px;
     background: #2F2F2F;
@@ -13,7 +13,7 @@
     
 }
 
-.button-next-question:hover {
+.buttons-test:hover {
     opacity: 0.6;
     transition: 1s linear;
 }

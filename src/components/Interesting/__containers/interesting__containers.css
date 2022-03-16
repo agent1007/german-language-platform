@@ -1,0 +1,30 @@
+.interesting__containers {
+    width: 80%;
+    margin:  auto ;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
+    gap: 20px 22px;
+    background-color: #948787;
+}
+
+@media screen and (max-width: 900px) { 
+    .interesting__containers {
+        max-width: 590px;
+        justify-items: center;
+        
+        
+    }
+}
+
+
+@media screen and (max-width: 767px) { 
+    .interesting__containers {
+        max-width: 282px;
+        margin: 36px auto 48px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+}

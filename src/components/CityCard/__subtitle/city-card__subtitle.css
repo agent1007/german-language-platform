@@ -1,0 +1,8 @@
+.city-card__subtitle {
+   text-align: justify;
+   padding: 10px;
+   min-height: 30%;
+   margin: 0;
+   border: inset;
+   background-color: aliceblue;
+}

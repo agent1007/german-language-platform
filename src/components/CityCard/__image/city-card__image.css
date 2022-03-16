@@ -1,0 +1,10 @@
+.city-card__image {
+    width: 40vw;
+    height: 65vh;
+    object-fit: cover;
+    object-position: left center;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}

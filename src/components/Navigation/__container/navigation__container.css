@@ -1,0 +1,8 @@
+.navigation__container {
+    margin-left: 85px;
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    column-gap: 20px;
+    justify-content: start;
+    
+}

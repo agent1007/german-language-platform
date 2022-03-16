@@ -53,10 +53,38 @@
 @import url(./components/Testing/__variants/testing__variants.css);
 
 
-@import url(./components/ButtonNextQuestion/button-next-question.css);
-@import url(./components/ButtonNextQuestion/_block/button-next-question_block.css);
+@import url(./components/ButtonsTest/buttons-test.css);
+@import url(./components/ButtonsTest/_block/buttons-test_block.css);
+
+@import url(./components/Navigation/__container/navigation__container.css);
+@import url(./components/Navigation/__title/navigation__title.css);
+@import url(./components/Navigation/navigation.css);
 
 
+@import url(./components/Interesting/__author/interesting__author.css);
+@import url(./components/Interesting/__button/interesting__button.css);
+@import url(./components/Interesting/__button/_active/interesting__button_active.css);
+@import url(./components/Interesting/__buttons/interesting__buttons.css);
+@import url(./components/Interesting/__container/interesting__container.css);
+@import url(./components/Interesting/__containers/interesting__containers.css);
+@import url(./components/Interesting/__delete-button/interesting__delete-button.css);
+@import url(./components/Interesting/__delete-button/_hidden/interesting__delete-button_hidden.css);
+@import url(./components/Interesting/__image/interesting__image.css);
+@import url(./components/Interesting/__like-numbers/interesting__like-numbers.css);
+@import url(./components/Interesting/__row/interesting__row.css);
+@import url(./components/Interesting/__title/interesting__title.css);
+@import url(./components/Interesting/interesting.css);
+
+
+@import url(./components/CityCard/__container/city-card__container.css);
+@import url(./components/CityCard/__containers/city-card__containers.css);
+@import url(./components/CityCard/__image/city-card__image.css);
+@import url(./components/CityCard/__subtitle/city-card__subtitle.css);
+@import url(./components/CityCard/__title/city-card__title.css);
+@import url(./components/CityCard/city-card.css);
+@import url(./components/CityCard/__button/city-card__button.css);
+@import url(./components/CityCard/_height/city-card__container_height.css);
+@import url(./components/CityCard/_row/city-card__container_row.css);
 
 
 

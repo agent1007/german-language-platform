@@ -1,9 +1,7 @@
 function Reasons({ ElementsReasons, onElementClick }) {
 
-    let j = 0;
-    let image = ElementsReasons.map(function (e, i) {
-        j++;
 
+    let image = ElementsReasons.map(function (e, i) {
         function handleClick() {
             onElementClick({
                 url: e.url,
@@ -11,10 +9,9 @@ function Reasons({ ElementsReasons, onElementClick }) {
                 information: e.information,
                 id: e.id
             })
-
         }
         return <div className="reasons__container" key={e.id}>
-            <img className="reasons__image" src={e.url} alt={e.subtitle} id={"id" + j} onClick={handleClick} />
+            <img className="reasons__image" src={e.url} alt={e.subtitle} onClick={handleClick} />
             <p className="reasons__subtitle">{e.title}</p>
         </div>
     })

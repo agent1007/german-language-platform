@@ -1,8 +1,21 @@
 .city-card__subtitle {
    text-align: justify;
    padding: 10px;
-   min-height: 30%;
+   min-height: 40%;
    margin: 0;
    border: inset;
    background-color: aliceblue;
+}
+
+.city-card__subtitle:first-child {
+   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 410px) {    
+   .city-card__subtitle  {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 15px;
+      min-height: max-content;
+   }
 }

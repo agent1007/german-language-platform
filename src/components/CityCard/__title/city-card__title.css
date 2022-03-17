@@ -2,3 +2,9 @@
     margin-top: 0;
     text-align: center;
 }
+
+@media screen and (max-width: 410px) {    
+    .city-card__title  {
+        margin-bottom: 20px;
+    }
+}

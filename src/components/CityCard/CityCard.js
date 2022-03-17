@@ -13,6 +13,7 @@ function CityCard() {
                 <div className="city-card__container">
                     <div className="city-card__container city-card__container_row">
                         <button className="city-card__button city-card__button_block" onClick={goBack} >Назад</button>
+                        
                         <button className="city-card__button">Редактировать</button>
                     </div>
                     <h2 className="city-card__title">Санкт-Петербург</h2>

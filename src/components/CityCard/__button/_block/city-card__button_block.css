@@ -1,5 +1,5 @@
 @media screen and (max-width: 410px) {    
     .city-card__button_block  {
-        display: block;
+        display: none;
     }
 }

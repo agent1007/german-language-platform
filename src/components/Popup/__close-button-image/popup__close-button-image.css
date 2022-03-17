@@ -14,12 +14,12 @@
     transition: 1s linear;
 }
 
-@media screen and (max-width: 767px) {    
+@media screen and (max-width: 410px) {    
     .popup__close-button-image {
-        width: 20px;
-        height: 20px;
-        background-size: 20px 20px;
-        margin-top: -20px;
-        margin-right: -50px;
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+        
+        
     }
 }

@@ -8,9 +8,9 @@
     padding: 0px;
 }
 
-@media screen and (max-width: 767px) {    
-    .popup__contain er {
-        align-self: center;
-        max-width: 282px;
+@media screen and (max-width: 410px) {    
+    .popup__container-image {
+        flex-direction: column;
+        max-height: 80%;
     }
 }

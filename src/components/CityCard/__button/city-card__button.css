@@ -2,3 +2,10 @@
    align-self: end;
     width: max-content;
 }
+
+@media screen and (max-width: 410px) {    
+    .city-card__button  {
+        
+        margin-bottom: 20px;
+    }
+}

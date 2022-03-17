@@ -8,3 +8,11 @@
     margin-bottom: 50px;
     margin-right: 40px;
 }
+
+@media screen and (max-width: 410px) {    
+    .city-card__containers  {
+        width: 80%;
+        margin: 20px auto;
+        justify-content:flex-start;
+    }
+}

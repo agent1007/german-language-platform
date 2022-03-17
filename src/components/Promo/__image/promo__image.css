@@ -9,16 +9,12 @@
     border-radius: 5px;
 }
 
-@media screen and (max-width: 510px) {    
-    .promo__image {
-        margin: 140px auto 48px;
-    }
-}
+
 
 @media screen and (max-width: 410px) {    
     .promo__image {
-        width: 210px;
-        height: 206px;
+        width: 250px;
+        height: 246px;
         margin: 70px auto 42px;
     }
 }

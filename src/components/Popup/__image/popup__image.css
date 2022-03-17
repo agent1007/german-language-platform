@@ -7,9 +7,10 @@
 
 }
 
-@media screen and (max-width: 767px) {    
+@media screen and (max-width: 410px) {    
     .popup__image {
-        margin: auto;
-        max-width: 240px;
+        
+        width: 250px;
+        height: 250px;
     }
 }

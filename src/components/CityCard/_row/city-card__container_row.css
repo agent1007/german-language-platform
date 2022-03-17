@@ -1,3 +1,9 @@
 .city-card__container_row {
     flex-direction: row;
 }
+
+@media screen and (max-width: 410px) {    
+    .city-card__container_row  {
+        width: 100%;      
+    }
+}

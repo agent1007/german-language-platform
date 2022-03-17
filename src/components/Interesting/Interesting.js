@@ -1,5 +1,6 @@
 import { Link, Route, useRouteMatch } from 'react-router-dom';
 import spb from '../../images/spb.jpg';
+import add from '../../images/add.png';
 
 
 
@@ -83,10 +84,18 @@ function Interesting() {
                     <p className="interesting__author">Черкасова Яна </p>
                     <button type="button" className="interesting__delete-button" />
                 </div>
+                <div className="interesting__container">
+                    <img className="interesting__image interesting__image_size" src={add} alt="Добавить еще" />
+                    <div className="interesting__row">
+                        <h2 className="interesting__title interesting__title_wrap" >Раскажи про свой город</h2>
+                        
+                    </div>
+                    <p className="interesting__author">Твое имя</p>
+                </div>
 
             </div>
 
-            
+
         </section>
     );
 }

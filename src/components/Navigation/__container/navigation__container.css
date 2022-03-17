@@ -3,6 +3,14 @@
     display: grid;
     grid-template-columns: repeat(5, max-content);
     column-gap: 20px;
-    justify-content: start;
-    
+    justify-content: start; 
+}
+
+@media screen and (max-width: 321px) {    
+    .navigation__container {
+        width: 80%;
+        margin: auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
 }

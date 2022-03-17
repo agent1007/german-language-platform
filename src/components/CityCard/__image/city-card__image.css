@@ -8,3 +8,11 @@
     margin-bottom: 50px;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 410px) {    
+    .city-card__image {
+        width: 80%;
+        height: 45vh;
+        margin: 50px auto 20px;
+    }
+}

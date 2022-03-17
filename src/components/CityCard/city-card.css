@@ -3,3 +3,9 @@
     justify-content: space-between;
     background-color: rgb(179, 187, 187);
 }
+
+@media screen and (max-width: 410px) {    
+    .city-card {
+        display: grid;
+    }
+}

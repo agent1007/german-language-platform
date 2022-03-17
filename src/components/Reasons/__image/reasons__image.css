@@ -9,3 +9,10 @@
     object-fit: cover;
     cursor: pointer;
 }
+
+@media screen and (max-width: 410px) {    
+    .reasons__image {
+        margin-top: 30px;
+        margin-bottom: 13px;
+    }
+}

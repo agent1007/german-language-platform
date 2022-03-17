@@ -6,7 +6,7 @@
     justify-content: start; 
 }
 
-@media screen and (max-width: 321px) {    
+@media screen and (max-width: 410px) {    
     .navigation__container {
         width: 80%;
         margin: auto;

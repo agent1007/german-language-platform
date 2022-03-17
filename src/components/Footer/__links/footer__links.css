@@ -7,14 +7,14 @@
     column-gap: 20px;
 }
 
-@media screen and (max-width: 375px) {    
+@media screen and (max-width: 430px) {    
     .footer__links {
         grid-template-columns:   max-content max-content;
 
     }
 }
 
-@media screen and (max-width: 322px) {    
+@media screen and (max-width: 410px) {    
     .footer__links {
         grid-template-columns:  max-content;
         padding-left: 0;

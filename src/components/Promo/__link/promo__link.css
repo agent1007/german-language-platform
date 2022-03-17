@@ -20,7 +20,7 @@
     transition: 1s linear;
 }
 
-@media screen and (max-width: 910px) {    
+@media screen and (max-width: 410px) {    
     .promo__link {
         margin: auto;
         text-align: center;

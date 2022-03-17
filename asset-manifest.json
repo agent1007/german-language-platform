@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/german-language-platform/static/css/main.65a83f06.css",
+    "main.css": "/german-language-platform/static/css/main.a989cb01.css",
     "main.js": "/german-language-platform/static/js/main.1228bf53.js",
     "static/js/787.d239888c.chunk.js": "/german-language-platform/static/js/787.d239888c.chunk.js",
     "static/media/Inter-Medium.woff?v=3.15": "/german-language-platform/static/media/Inter-Medium.eec0ea57721daa33c7a2.woff",
@@ -25,12 +25,12 @@
     "static/media/Vector-heart.svg": "/german-language-platform/static/media/Vector-heart.c1a00cbb4d07e6b7cb3c.svg",
     "static/media/Vector-heartBlack.svg": "/german-language-platform/static/media/Vector-heartBlack.75438e944a43e4c0b404.svg",
     "static/media/close-icon.svg": "/german-language-platform/static/media/close-icon.61b629a4dc3574160af9.svg",
-    "main.65a83f06.css.map": "/german-language-platform/static/css/main.65a83f06.css.map",
+    "main.a989cb01.css.map": "/german-language-platform/static/css/main.a989cb01.css.map",
     "main.1228bf53.js.map": "/german-language-platform/static/js/main.1228bf53.js.map",
     "787.d239888c.chunk.js.map": "/german-language-platform/static/js/787.d239888c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65a83f06.css",
+    "static/css/main.a989cb01.css",
     "static/js/main.1228bf53.js"
   ]
 }

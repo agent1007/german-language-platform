@@ -10,6 +10,10 @@
 @import url(./components/Header/__button-register/header__button-register.css); 
 @import url(./components/Header/__button-testing/header__button-testing.css); 
 @import url(./components/Header/__testing/header__testing.css); 
+@import url(./components/Header/__profile-image/header__profile-image.css); 
+@import url(./components/Header/__profile-text/header__profile-text.css); 
+@import url(./components/Header/__profile/header__profile.css); 
+
 
 @import url(./components/Promo/__container/promo__container.css); 
 @import url(./components/Promo/__image/promo__image.css);
@@ -35,11 +39,20 @@
 @import url(./components/Popup/popup.css);
 @import url(./components/Popup/_opened/popup_opened.css);
 @import url(./components/Popup/_type/_image/popup_type_image.css);
+@import url(./components/Popup/_type/_add-card/popup_type_add-card.css);
 @import url(./components/Popup/__container-image/popup__container-image.css);
+@import url(./components/Popup/__container/popup__container.css);
+@import url(./components/Popup/__title/popup__title.css);
+@import url(./components/Popup/__title/_add-card/popup__title_add-card.css);
 @import url(./components/Popup/__image/popup__image.css);
 @import url(./components/Popup/__close-button/popup__close-button.css);
 @import url(./components/Popup/__close-button-image/popup__close-button-image.css);
 @import url(./components/Popup/__image-caption/popup__image-caption.css);
+@import url(./components/Popup/__info/popup__info.css);
+@import url(./components/Popup/__info/_title-add-card/popup__info_title-add-card.css);
+@import url(./components/Popup/__info/_subtitle-add-card/popup__info_subtitle-add-card.css);
+@import url(./components/Popup/__submit-button/popup__submit-button.css);
+@import url(./components/Popup/__submit-button/_add-card/popup__submit-button_add-card.css);
 
 
 @import url(./components/Testing/testing.css);
@@ -66,6 +79,7 @@
 @import url(./components/Interesting/__button/_active/interesting__button_active.css);
 @import url(./components/Interesting/__buttons/interesting__buttons.css);
 @import url(./components/Interesting/__container/interesting__container.css);
+@import url(./components/Interesting/__container/_cursor/interesting__container_cursor.css);
 @import url(./components/Interesting/__containers/interesting__containers.css);
 @import url(./components/Interesting/__delete-button/interesting__delete-button.css);
 @import url(./components/Interesting/__delete-button/_hidden/interesting__delete-button_hidden.css);
@@ -88,6 +102,34 @@
 @import url(./components/CityCard/__button/_block/city-card__button_block.css);
 @import url(./components/CityCard/_height/city-card__container_height.css);
 @import url(./components/CityCard/_row/city-card__container_row.css);
+
+
+@import url(./components/Login/__container/login__container.css);
+@import url(./components/Login/__form/login__form.css);
+@import url(./components/Login/__input/login__input.css);
+@import url(./components/Login/__link/login__link.css);
+@import url(./components/Login/__submit-button/login__submit-button.css);
+@import url(./components/Login/__text/login__text.css);
+@import url(./components/Login/__title/login__title.css);
+@import url(./components/Login/login.css);
+
+@import url(./components/Profile/__close-button/profile__close-button.css);
+@import url(./components/Profile/__form/profile__form.css);
+@import url(./components/Profile/__input-container/profile__input-container.css);
+@import url(./components/Profile/__input-text/profile__input-text.css);
+@import url(./components/Profile/__input/profile__input.css);
+@import url(./components/Profile/__inputs/profile__inputs.css);
+@import url(./components/Profile/__loading/profile__loading.css);
+@import url(./components/Profile/__submit-button/_disabled/profile__submit-button_disabled.css);
+@import url(./components/Profile/__submit-button/profile__submit-button.css);
+@import url(./components/Profile/__title/profile__title.css);
+@import url(./components/Profile/profile.css);
+
+@import url(./components/Card/__button/card__button.css);
+@import url(./components/Card/__button/_active/card__button_active.css);
+@import url(./components/Card/__delete-button/card__delete-button.css);
+@import url(./components/Card/__delete-button/_hidden/card__delete-button_hidden.css);
+
 
 
 

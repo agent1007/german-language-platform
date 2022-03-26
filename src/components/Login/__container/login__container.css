@@ -1,0 +1,14 @@
+.login__container {
+    width: 100%;
+    display: flex;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 auto;
+    background-color: #948787;
+    justify-content: center;
+    padding-top: 3px;
+}

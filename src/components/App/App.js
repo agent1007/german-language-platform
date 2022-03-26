@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 
 import Header from '../Header/header';
 import Navigation from '../Navigation/Navigation';
@@ -9,68 +9,262 @@ import Testing from '../Testing/Testing';
 import Interesting from '../Interesting/Interesting';
 import CityCard from '../CityCard/CityCard';
 import Footer from '../Footer/Footer';
-import ElementsTest from '../ElementsTest/ElementsTest';
-
+import ElementsTest from '../../utils/constans/ElementsTest';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import Profile from '../Profile/Profile';
+import * as auth from '../../utils/auth';
+import api from '../../utils/api';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import ImagePopup from '../Popup/ImagePopup';
-import ElementsReasons from '../ElementsReasons/ElementsReasons';
+import AddElementPopup from '../AddElementPopup/AddElementPopup';
+import ElementsReasons from '../../utils/constans/ElementsReasons';
 
 
 
 function App() {
 
+  // стейт элементов для AddElementPopup
+  const [isAddElementPopupOpen, setIsAddElementPopupOpen] = useState(false);
+
+  function handleAddElementClick() {
+    setIsAddElementPopupOpen(true);
+  }
+  // стейт элементов для ImapePopup
+  const [selectedElement, setSelectedElement] = useState(false);
+  function handleElementClick(element) {
+    setSelectedElement(element);
+  }
 
 
   // стейт элементов для ImapePopup
-  const [selectedElement, setSelectedElement] = useState(false);
-
-
-  function handleElementClick(element) {
-    setSelectedElement(element);
-    console.log(selectedElement)
+  const [cityCard, setCityCard] = useState(false);
+  function handlCityCardClick(element) {
+    setCityCard(element);
   }
+
+
+
 
   // функция закрытия любого попапа
   function closeAllPopups() {
     setSelectedElement(false);
+    setIsInfoTooltip(false);
+    setIsAddElementPopupOpen(false);
   }
 
+
+  function handleAddElementSubmit(data) {
+    api.addCard(data)
+      .then(newCard => {
+        setCards([newCard, ...cards]);;
+        closeAllPopups()
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
+  function handleCardLike(card) {
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    const likeRequest = !isLiked ? api.addCardLike(card._id) : api.deleteCardLike(card._id);
+    likeRequest
+      .then((newCard) => {
+        const newCards = cards.map((c) => c._id === card._id ? newCard : c);
+        setCards(newCards);
+      })
+      .catch(err => console.log(err))
+  }
+  function handleCardDelete(card) {
+    api.removeCard(card._id)
+      .then(() => {
+        const newCards = cards.filter((data) => { return card._id !== data._id });
+        setCards(newCards);
+      })
+      .catch(err => console.log(err))
+  }
+
+  function handleUpdateCard(card) {
+    api.editCard(card._id)
+      .then(() => {
+        const newCards = cards.filter((data) => { return card._id !== data._id });
+        setCards(newCards);
+        closeAllPopups();
+      })
+      .catch(err => console.log(err))
+  }
+
+
+  const initialData = {
+    email: '',
+    password: ''
+  }
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [data, setData] = useState(initialData)
+  const [success, setSuccess] = useState(false)
+  const history = useHistory();
+  const [isInfoTooltip, setIsInfoTooltip] = useState(false);
+
+
+
+  const tokenCheck = useCallback(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      api.getUserData(jwt)
+        .then((res) => {
+          if (res) {
+            setData({
+              email: res.email,
+            })
+            setLoggedIn(true);
+            // history.push('/')
+          }
+        })
+        .catch((res) => {
+          history.push('/signin')
+        })
+    }
+
+  }, [history])
+
+  useEffect(() => {
+    tokenCheck();
+  }, [tokenCheck])
+
+  const handleRegister = ({ email, name, password }) => {
+    return auth.register(email, name, password)
+      .then((res) => {
+        setSuccess(true);
+        setIsInfoTooltip(true);
+        history.push('/signin');
+        return res;
+      })
+      .catch(err => {
+        setIsInfoTooltip(true);
+        history.push('/signup');
+        setSuccess(false);
+      })
+  }
+
+  const handleLogin = ({ email, password }) => {
+    return auth.login(email, password).then(res => {
+      if (!res || res.statusCode === 400) throw new Error('Что-то пошло не так');
+      if (res.token) {
+        setData({ email })
+        localStorage.setItem('jwt', res.token);
+        setLoggedIn(true);
+      };
+    });
+
+  }
+  const handleSignOut = () => {
+    localStorage.removeItem('jwt');
+    setData(initialData);
+    setLoggedIn(false);
+    history.push('/signin');
+  }
+
+  const [currentUser, setCurrentUser] = useState({});
+  const [cards, setCards] = useState([]);
+
+
+  useEffect(() => {
+    if (loggedIn) {
+      api.getUserData()
+        .then(data => {
+          setCurrentUser(data);
+        })
+        .catch(err => console.log(err))
+    }
+  }, [loggedIn])
+
+  useEffect(() => {
+    if (loggedIn) {
+      api.getInitialCards()
+        .then(res => {
+          setCards(res)
+        })
+        .catch(err => console.log(err))
+    }
+  }, [loggedIn])
+
+  
 
 
   return (
     <div className="App">
-      <div className="body">
+      <CurrentUserContext.Provider value={currentUser}>
+        <div className="body">
 
-        <div className="page">
-          <Header />
-          <Navigation />
-          <Route exact path="/">
-            <Promo />
-            <Reasons
-              ElementsReasons={ElementsReasons}
-              onElementClick={handleElementClick}
-            />
-          </Route>
-          <Route path="/testing">
-            <Testing
-              ElementsTest={ElementsTest} />
-          </Route>
-          <Route path="/interesting">
-            <Interesting />
-          </Route>
-          <Route path="/city">
-                <CityCard />
-            </Route>
+          <div className="page">
+            <Header
+              onSignOut={handleSignOut}
+              loggedIn={loggedIn} />
+            <Navigation />
+            <Switch>
+
+              <Route exact path="/">
+                <Promo />
+                <Reasons
+                  ElementsReasons={ElementsReasons}
+                  onElementClick={handleElementClick}
+                />
+              </Route>
+              <Route path="/testing">
+                <Testing
+                  ElementsTest={ElementsTest} />
+              </Route>
+              <Route path="/interesting">
+                <Interesting
+                  onAddElement={handleAddElementClick}
+                  onCardLike={handleCardLike}
+                  onCardDelete={handleCardDelete}
+                  onCardUpdate={handleUpdateCard}
+                  cards={cards}
+                  onCityCardClick={handlCityCardClick}
+                />
+              </Route>
+              <Route path="/city">
+                <CityCard
+                  card={cityCard}
+                />
+              </Route>
+
+              <Route path="/profile">
+                <Profile />
+              </Route>
+
+
+
+              <Route path="/signin">
+                <Login onLogin={handleLogin} tokenCheck={tokenCheck} />
+              </Route>
+
+              <Route path="/signup">
+                <Register onRegister={handleRegister} />
+              </Route>
+
+              <Route>
+                {loggedIn ? <Redirect to='/' /> : <Redirect to='/signin' />}
+              </Route>
+
+            </Switch>
+          </div>
+          <Footer />
+
+          <AddElementPopup
+            isOpen={isAddElementPopupOpen}
+            onClose={closeAllPopups}
+            onAddElement={handleAddElementSubmit} />
+          <ImagePopup
+            card={selectedElement}
+            onClose={closeAllPopups}
+
+          />
+
+
         </div>
-        <Footer />
-
-        <ImagePopup
-          card={selectedElement}
-          onClose={closeAllPopups}
-        />
-
-
-      </div>
+      </CurrentUserContext.Provider>
 
 
 

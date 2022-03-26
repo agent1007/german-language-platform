@@ -8,7 +8,7 @@ function Promo() {
                 <div className="promo__container">
                     <h1 className="promo__title">Изучайте немецкий язык с Черкасовой Яной.</h1>
                     <p className="promo__subtitle">Листайте ниже, чтобы узнать больше причин для изучения.</p>
-                    <a href="#reasons" className="promo__link">Узнать больше</a>
+                    {/* <a href="#reasons" className="promo__link">Узнать больше</a> */}
                 </div>
                 <img className="promo__image" src={promo} alt="Красотка."/>
             </section>

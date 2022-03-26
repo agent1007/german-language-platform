@@ -1,26 +1,34 @@
-import spb from '../../images/spb.jpg';
-import { Link, useHistory } from 'react-router-dom';
-function CityCard() {
+import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+
+
+function CityCard({ card }) {
 
     const history = useHistory();
     const goBack = () => history.goBack();
 
+    const currentUser = useContext(CurrentUserContext);
+    const isOwn = card.owner === currentUser._id;
+    const cardEditButtonClassName = (
+        `city-card__button ${isOwn ? 'city-card__button' : 'card__delete-button_hidden'}`
+    );
     return (
 
         <section className="city-card">
-            <img className="city-card__image" src={spb} alt="Красотка." />
+            <img className="city-card__image" src={card.link} alt="Город." />
             <div className="city-card__containers">
                 <div className="city-card__container">
                     <div className="city-card__container city-card__container_row">
                         <button className="city-card__button city-card__button_block" onClick={goBack} >Назад</button>
-                        
-                        <button className="city-card__button">Редактировать</button>
+
+                        <button className={cardEditButtonClassName}>Редактировать</button>
                     </div>
-                    <h2 className="city-card__title">Санкт-Петербург</h2>
+                    <h2 className="city-card__title">{card.name}</h2>
                 </div>
                 <div className="city-card__container city-card__container_height">
-                    <p className="city-card__subtitle">Санкт-Петербург - второй по величине город России. Он был основан 16 мая 1703 года при Петре I, когда после победы над шведами он решил заложить на Заячьем острове Петропавловскую крепость. С 18 века по начало 20 века Санкт-Петербург был столицей России.</p>
-                    <p className="city-card__subtitle">St. Petersburg ist die zweitgrößte Stadt Russlands. Es wurde am 16. Mai 1703 unter Peter I. gegründet, als er nach dem Sieg über die Schweden beschloss, eine Peter-Paul-Festung auf der Haseninsel zu verlegen. Vom 18. Jahrhundert bis zum Beginn des 20. Jahrhunderts war St. Petersburg die Hauptstadt Russlands.</p>
+                    <p className="city-card__subtitle">{card.titleRu}</p>
+                    <p className="city-card__subtitle">{card.titleDeu}</p>
                 </div>
             </div>
 

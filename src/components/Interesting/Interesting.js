@@ -4,7 +4,6 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useContext } from 'react';
 
 function Interesting({ onAddElement, cards, onCardLike, onCardDelete, onCityCardClick }) {
-    console.log(cards)
     const currentUser = useContext(CurrentUserContext);
     return (
         <section className="interesting">

@@ -19,18 +19,37 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import ImagePopup from '../Popup/ImagePopup';
 import AddElementPopup from '../AddElementPopup/AddElementPopup';
+import EditElementPopup from '../EditElementPopup/EditElementPopup';
 import ElementsReasons from '../../utils/constans/ElementsReasons';
 
 
 
 function App() {
 
+  const initialData = {
+    email: '',
+    password: ''
+  }
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [data, setData] = useState(initialData)
+  const [success, setSuccess] = useState(false)
+  const history = useHistory();
+  const [isInfoTooltip, setIsInfoTooltip] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+  const [currentCard, setCurrentCard] = useState({});
+  const [cards, setCards] = useState([]);
   // стейт элементов для AddElementPopup
   const [isAddElementPopupOpen, setIsAddElementPopupOpen] = useState(false);
+  // стейт элементов для EditElementPopup
+  const [isEditElementPopupOpen, setIsEditElementPopupOpen] = useState(false);
 
   function handleAddElementClick() {
     setIsAddElementPopupOpen(true);
   }
+  function handleEditElementClick() {
+    setIsEditElementPopupOpen(true);
+  }
+
   // стейт элементов для ImapePopup
   const [selectedElement, setSelectedElement] = useState(false);
   function handleElementClick(element) {
@@ -39,10 +58,23 @@ function App() {
 
 
   // стейт элементов для ImapePopup
-  const [cityCard, setCityCard] = useState(false);
+  const [cityCard, setCityCard] = useState({});
   function handlCityCardClick(element) {
     setCityCard(element);
   }
+
+
+  function handleUpdateUser(data) {
+    api.editProfile(data)
+      .then(data => {
+        let card = cards.find(e => e._id === data._id)
+        setCards(card);
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
+
 
 
 
@@ -52,13 +84,14 @@ function App() {
     setSelectedElement(false);
     setIsInfoTooltip(false);
     setIsAddElementPopupOpen(false);
+    setIsEditElementPopupOpen(false)
   }
 
 
   function handleAddElementSubmit(data) {
     api.addCard(data)
       .then(newCard => {
-        setCards([newCard, ...cards]);;
+        setCards([newCard, ...cards]);
         closeAllPopups()
       }
       )
@@ -75,8 +108,9 @@ function App() {
       })
       .catch(err => console.log(err))
   }
+
   function handleCardDelete(card) {
-    api.removeCard(card._id)
+    api.removeCard(card)
       .then(() => {
         const newCards = cards.filter((data) => { return card._id !== data._id });
         setCards(newCards);
@@ -85,25 +119,14 @@ function App() {
   }
 
   function handleUpdateCard(card) {
-    api.editCard(card._id)
-      .then(() => {
-        const newCards = cards.filter((data) => { return card._id !== data._id });
-        setCards(newCards);
-        closeAllPopups();
-      })
+    api.editCard(card)
+      .then(data => {
+        setCurrentUser(data);
+      }
+      )
       .catch(err => console.log(err))
   }
 
-
-  const initialData = {
-    email: '',
-    password: ''
-  }
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [data, setData] = useState(initialData)
-  const [success, setSuccess] = useState(false)
-  const history = useHistory();
-  const [isInfoTooltip, setIsInfoTooltip] = useState(false);
 
 
 
@@ -164,8 +187,7 @@ function App() {
     history.push('/signin');
   }
 
-  const [currentUser, setCurrentUser] = useState({});
-  const [cards, setCards] = useState([]);
+
 
 
   useEffect(() => {
@@ -188,7 +210,7 @@ function App() {
     }
   }, [loggedIn])
 
-  
+
 
 
   return (
@@ -219,7 +241,6 @@ function App() {
                   onAddElement={handleAddElementClick}
                   onCardLike={handleCardLike}
                   onCardDelete={handleCardDelete}
-                  onCardUpdate={handleUpdateCard}
                   cards={cards}
                   onCityCardClick={handlCityCardClick}
                 />
@@ -227,14 +248,14 @@ function App() {
               <Route path="/city">
                 <CityCard
                   card={cityCard}
+                  onEditElement={handleEditElementClick}
                 />
               </Route>
 
               <Route path="/profile">
-                <Profile />
+                <Profile
+                  onUpdateUser={handleUpdateUser} />
               </Route>
-
-
 
               <Route path="/signin">
                 <Login onLogin={handleLogin} tokenCheck={tokenCheck} />
@@ -256,6 +277,10 @@ function App() {
             isOpen={isAddElementPopupOpen}
             onClose={closeAllPopups}
             onAddElement={handleAddElementSubmit} />
+          <EditElementPopup
+            isOpen={isEditElementPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateCard={handleUpdateCard} />
           <ImagePopup
             card={selectedElement}
             onClose={closeAllPopups}

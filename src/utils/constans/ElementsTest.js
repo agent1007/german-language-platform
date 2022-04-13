@@ -2,7 +2,7 @@ const ElementsTest = {
    "testName": "Тест на перевод немецких слов.",
    "questions": [
       {
-         "title": "Как переводится слово Arbeiten?",
+         "title": "Arbeiten?",
          "variants": [
             {
                "title": "Работать.",
@@ -58,7 +58,7 @@ const ElementsTest = {
          ],
          id: 3
       },
-      
+
    ]
 }
 export default ElementsTest;

@@ -1,13 +1,13 @@
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useFormWithValidation } from '../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 
 function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadError }) {
-    const { values, errors, isValid, handleChange, setValues } = useFormWithValidation();
+    const { values, errors, isValid, handleChange, setValues, setIsValid } = useFormWithValidation();
     const history = useHistory();
     const currentUser = useContext(CurrentUserContext);
-
+    const [disabled, setDisabled] = useState(false);
 
     const handleSubmita = (e) => {
         e.preventDefault();
@@ -21,12 +21,19 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
                 name: currentUser.name,
                 email: currentUser.email
             })
+            setDisabled(true)
         }
     }, [currentUser]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        onUpdateUser(values)
+        onUpdateUser(values);
+        setIsValid(false);
+    }
+
+    function handleClick(e) {
+        e.preventDefault();
+        setDisabled(false)
     }
 
     return (
@@ -47,6 +54,7 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
                             maxLength='40'
                             pattern='[a-zA-Zа-яА-Я -]{1,}'
                             required
+                            disabled={disabled}
                         />
                         <span
                             id="name-error"
@@ -63,6 +71,7 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
                             value={values.email || ''}
                             onChange={handleChange}
                             required
+                            disabled={disabled}
                         />
                         <span
                             id="email-error"
@@ -75,6 +84,13 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
                     className={`profile__submit-button ${!isValid && "profile__submit-button_disabled"
                         }`}
                     disabled={!isValid}
+                >Сохранить
+                </button>
+                <button
+                    type="button"
+                    className={`profile__submit-button ${isValid && "profile__submit-button_disabled"
+                        }`}
+                    onClick={handleClick}
                 >Редактировать
                 </button>
             </form>

@@ -42,6 +42,7 @@
 @import url(./components/Popup/_type/_add-card/popup_type_add-card.css);
 @import url(./components/Popup/__container-image/popup__container-image.css);
 @import url(./components/Popup/__container/popup__container.css);
+@import url(./components/Popup/__container/_edit-city-card/popup__container_edit-city-card.css);
 @import url(./components/Popup/__title/popup__title.css);
 @import url(./components/Popup/__title/_add-card/popup__title_add-card.css);
 @import url(./components/Popup/__image/popup__image.css);
@@ -130,7 +131,7 @@
 @import url(./components/Card/__delete-button/card__delete-button.css);
 @import url(./components/Card/__delete-button/_hidden/card__delete-button_hidden.css);
 
-
-
-
+@import url(./components/Error/_register/error_register.css);
+@import url(./components/Error/_visible/error_visible.css);
+@import url(./components/Error/error.css);
 

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
-function CityCard({ card }) {
+function CityCard({ card, onEditElement }) {
 
     const history = useHistory();
     const goBack = () => history.goBack();
@@ -22,7 +22,7 @@ function CityCard({ card }) {
                     <div className="city-card__container city-card__container_row">
                         <button className="city-card__button city-card__button_block" onClick={goBack} >Назад</button>
 
-                        <button className={cardEditButtonClassName}>Редактировать</button>
+                        <button className={cardEditButtonClassName} onClick={onEditElement}>Редактировать</button>
                     </div>
                     <h2 className="city-card__title">{card.name}</h2>
                 </div>

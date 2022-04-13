@@ -29,7 +29,7 @@ function AddElementPopup(props) {
   return (
     <PopupWithForm
       name='add-card'
-      title='Новое место'
+      title='Добавь свой город'
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}  >
@@ -40,7 +40,7 @@ function AddElementPopup(props) {
           minLength={2}
           maxLength={30}
           className="popup__info popup__info_title popup__info_title-add-card"
-          placeholder="Название"
+          placeholder="Название города"
           name="name"
           id="info-title-add-card"
           ref={nameRef}
@@ -70,7 +70,7 @@ function AddElementPopup(props) {
           minLength={1}
           maxLength={400}
           className="popup__info popup__info_title popup__info_title-add-card"
-          placeholder="Текст на русском языке"
+          placeholder="Описание города на русском языке"
           name="titleRu"
           id="info-title-add-card"
           ref={titleRuRef}
@@ -85,7 +85,7 @@ function AddElementPopup(props) {
           minLength={1}
           maxLength={400}
           className="popup__info popup__info_title popup__info_title-add-card"
-          placeholder="Текст на немецком языке"
+          placeholder="Описание города на немецком языке"
           name="titleDeu"
           id="info-title-add-card"
           ref={titleDeuRef}

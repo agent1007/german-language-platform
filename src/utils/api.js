@@ -1,6 +1,3 @@
-// import { useContext } from 'react';
-// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-// const currentUser = useContext(CurrentUserContext);
 class Api {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
@@ -49,25 +46,10 @@ class Api {
       .then((res) => this._requestResult(res))
   }
 
-  editCard(data) {
-    return fetch(`${this._baseUrl}/cards/${data.id}`, {
-      method: 'PATCH',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: data.name,
-        titleRu: data.titleRu,
-        titleDeu: data.titleDeu,
-        link: data.link
-      })
-    })
-      .then((res) => this._requestResult(res))
-  }
+  
 
-  removeCard(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+  removeCard(data) {
+    return fetch(`${this._baseUrl}/cards/${data._id}`, {
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -106,7 +88,24 @@ class Api {
       },
       body: JSON.stringify({
         name: data.name,
-        about: data.about
+        email: data.email
+      })
+    })
+      .then((res) => this._requestResult(res))
+  }
+
+  editCard(data) {
+    return fetch(`${this._baseUrl}/cards/${data._id}`, {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: data.name,
+        titleRu: data.titleRu,
+        titleDeu: data.titleDeu,
+        link: data.link
       })
     })
       .then((res) => this._requestResult(res))

@@ -1,48 +1,54 @@
 import ButtonsTest from '../../components/ButtonsTest/ButtonsTest';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Question from '../Question/Question';
 
 
 function Testing({ ElementsTest }) {
 
-
-    // счетчик вопрос
-    const [questionCounter, setQuestionCounter] = useState(0);
-
     // начальный стейт вопросов
     const [allQuestions, setAllQuestions] = useState([]);
+    // счетчик вопросов
+    const [questionCounter, setQuestionCounter] = useState(0);
+    // начальный стейт отображенных вопросов
+    const [displayAllQuestions, setDisplayAllQuestions] = useState([]);
 
-    const partFiltred = (data) => data.slice(questionCounter, questionCounter + 1)
+    useEffect(() => {
+        setAllQuestions(ElementsTest.questions.map((el) => {
+            return el;
+        }))
+    }, [])
 
+    const partFiltred = (data) => data.slice(questionCounter, questionCounter + 1);
 
-    const handleClickStart = () => {
-        setAllQuestions(...allQuestions, partFiltred(ElementsTest.questions))
-        setQuestionCounter(questionCounter);
-        console.log(allQuestions)
-        console.log(questionCounter)
-        
-
+    const handleClick = () => {
+        setDisplayAllQuestions(partFiltred(allQuestions))
+        setQuestionCounter(questionCounter + 1);
     }
 
-    const handleClickNext = () => {
-        setAllQuestions(...allQuestions, partFiltred(ElementsTest.questions))
-        setQuestionCounter(questionCounter + 2);
 
-    }
+
+
+    // const handleClickNext = () => {
+    //     setDisplayAllQuestions(partFiltred(allQuestions))
+    //     setQuestionCounter(questionCounter + 1);
+    // }
+
+
+
+
+
+
 
     // классы кнопки ButtonNextQuestion
     const ButtonStartTestClassName = (
-        `buttons-test ${(allQuestions.length !== 0) ? 'buttons-test_block' : ''}`
+        `buttons-test ${(displayAllQuestions.length !== 0) ? 'buttons-test_block' : ''}`
     );;
     const ButtonNextQuestionClassName = (
-        `buttons-test ${(allQuestions.length === 0) ? 'buttons-test_block' : ''}`
+        `buttons-test ${(((allQuestions[allQuestions.length - 1] || 0) === (displayAllQuestions[displayAllQuestions.length - 1] || 0)) || (displayAllQuestions.length === 0)) ? 'buttons-test_block' : ''}`
     );;
     const ButtonFinishTestClassName = (
-        `buttons-test ${(allQuestions.length < 3) ? 'buttons-test_block' : ''}`
+        `buttons-test ${((allQuestions[allQuestions.length - 1] || 0) !== (displayAllQuestions[displayAllQuestions.length - 1] || 0)) ? 'buttons-test_block' : ''}`
     );;
-
-
-
 
     return (
         <section className="testing">
@@ -51,22 +57,21 @@ function Testing({ ElementsTest }) {
             <ButtonsTest
                 ButtonClassName={ButtonStartTestClassName}
                 text="Начать тест"
-                handleClick={handleClickStart}
+                handleClick={handleClick}
             />
             <div className="testing__container">
-                {allQuestions.map(data => {
+                {displayAllQuestions.map(data => {
                     return (<Question
                         key={data.id}
                         questions={data}
                     />
                     )
                 })}
-
             </div>
 
             <ButtonsTest
                 text="Следующий вопрос"
-                handleClick={handleClickNext}
+                handleClick={handleClick}
                 ButtonClassName={ButtonNextQuestionClassName} />
             <ButtonsTest
                 text="Закончить тест"

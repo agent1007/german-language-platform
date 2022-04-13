@@ -2,7 +2,7 @@ function PopupWithForm(props) {
   return (
       <>
         <div className={`popup popup_type_${props.name} ${props.isOpen ? 'popup_opened' : ''} `}> 
-          <div className="popup__container">
+          <div className="popup__container popup__container_edit-city-card">
             <h2 className="popup__title">{props.title}</h2>
             <form className={`popup__form popup__form_type_${props.name}`} name="form-popup" onSubmit={props.onSubmit}>
               {props.children}   

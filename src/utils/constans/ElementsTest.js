@@ -58,7 +58,26 @@ const ElementsTest = {
          ],
          id: 3
       },
-
+      {
+         "title": "Kugelschreibe?",
+         "variants": [
+            {
+               "title": "Пушка",
+               
+               id: 1
+            },
+            {
+               "title": "Ручка.",
+               "flag": true,
+               id: 2
+            },
+            {
+               "title": "Номер.",
+               id: 3
+            }
+         ],
+         id: 4
+      }
    ]
 }
 export default ElementsTest;

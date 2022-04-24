@@ -36,7 +36,7 @@ function App() {
   const history = useHistory();
   const [isInfoTooltip, setIsInfoTooltip] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [currentCard, setCurrentCard] = useState({});
+  // const [currentCard, setCurrentCard] = useState({});
   const [cards, setCards] = useState([]);
   // стейт элементов для AddElementPopup
   const [isAddElementPopupOpen, setIsAddElementPopupOpen] = useState(false);
@@ -73,10 +73,6 @@ function App() {
       )
       .catch(err => console.log(err))
   }
-
-
-
-
 
 
   // функция закрытия любого попапа

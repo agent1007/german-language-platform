@@ -29,6 +29,7 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
         e.preventDefault();
         onUpdateUser(values);
         setIsValid(false);
+        setDisabled(true)
     }
 
     function handleClick(e) {

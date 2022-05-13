@@ -1,5 +1,7 @@
 const ElementsTest = {
+   "route": "ElementsTest",
    "testName": "Тест на перевод немецких слов.",
+   id: 1,
    "questions": [
       {
          "title": "Arbeiten?",
@@ -63,7 +65,7 @@ const ElementsTest = {
          "variants": [
             {
                "title": "Пушка",
-               
+
                id: 1
             },
             {

@@ -1,25 +1,38 @@
+import Variant from '../Variant/Variant';
+import { useState, useCallback } from 'react';
 
 function Question({ questions, setCheck }) {
-    
-    function choiceResponse(id) {
-        const res = questions.variants;
-        const user = res.find((el) => el.id === id)
-        setCheck('flag' in user ? true : false)
-    }
+
+    // const shuffle = useCallback((arr) => {
+    //     var j, temp;
+    //     for (var i = arr.length - 1; i > 0; i--) {
+    //         j = Math.floor(Math.random() * (i + 1));
+    //         temp = arr[j];
+    //         arr[j] = arr[i];
+    //         arr[i] = temp;
+    //     }
+    //     return arr;
+
+
+    // }, [])
+
+
+    // const variants = shuffle(questions.variants)
+
 
     return (
-        <div className="testing__container">
+        <>
             <h3 className="testing__question">Как переводиться {questions.title}</h3>
             <div className="testing__container-variants">
                 {questions.variants.map(data => {
-                    return <div className="testing__variants" key={data.id}>
-                        <input className="testing__variant-button" type="radio" name="name" onClick={() => choiceResponse(data.id)} />
-                        
-                        <label className="testing__variant-text" htmlFor={data.id}>{data.title}</label>
-                    </div>
+                    return (<Variant
+                        key={data.id}
+                        data={data}
+                        setCheck={setCheck}
+                    />)
                 })}
             </div>
-        </div>
+        </>
     );
 }
 

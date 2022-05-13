@@ -10,8 +10,8 @@ function Navigation() {
             <div className="navigation__container">
                 <Link to="/" className="navigation__title">Главная</Link>
                 <Link to="/testing" className="navigation__title">Тесты</Link>
-                <Link to="/texts" className="navigation__title">Тексты</Link>
-                <Link to="/vocabulary" className="navigation__title">Лексика</Link>
+                {/* <Link to="/texts" className="navigation__title">Тексты</Link>
+                <Link to="/vocabulary" className="navigation__title">Лексика</Link> */}
                 <Link to="/interesting" className="navigation__title">Интересное</Link>
             </div>
         </section>

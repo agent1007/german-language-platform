@@ -1,30 +1,45 @@
 import spb from '../../images/spb.jpg'
+import moskau from '../../images/moskau.jpg'
+import volgograd from '../../images/volgograd.jpg'
+import znamensk from '../../images/znamensk.jpg'
 
 
 const ElementsInteresting = [
-        {
-        url: spb,
-        title: "Санкт-Петербург",
-        author: "Черкасова Яна",
-        id: 1
+    {
+        link: spb,
+        name: "Санкт-Петербург.",
+        author: "Черкасов Павел",
+        _id: 1,
+        titleDeu: "St. Petersburg ist eine kalte Stadt.",
+        titleRu: "Санкт-Петербург - холодный город.",
+        likes: [1,2],
     },
     {
-        url: spb,
-        title: "Санкт-Петербург",
+        link: moskau,
+        name: "Москва.",
         author: "Черкасова Яна",
-        id: 2
+        _id: 2,
+        titleDeu: "Moskau ist die Hauptstadt unserer Heimat.",
+        titleRu: "Москва - столица нашей родины.",
+        likes: [1,2,3,4],
     },
     {
-        url: spb,
-        title: "Санкт-Петербург",
-        author: "Черкасова Яна",
-        id: 3
+        link: volgograd,
+        name: "Волгоград.",
+        author: "Воловин Вилен",
+        _id: 3,
+        titleDeu: "In dieser Stadt nehme ich Autoteile mit.",
+        titleRu: "В этом городе я забираю автозапчасти.",
+        likes: [1,1,1,1,1,1,1],
     },
     {
-        url: spb,
-        title: "Санкт-Петербург",
-        author: "Черкасова Яна",
-        id: 4
+        link: znamensk,
+        name: "Знаменск.",
+        author: "Черкасов Лев",
+        _id: 4,
+        titleDeu: "Meine Großeltern leben in dieser Stadt.",
+        titleRu: "В этом городе живут мои бабушки и дедушки.",
+        likes: [1,1,1,1,1,1,1,1,1,1,1],
     }
 ]
 export default ElementsInteresting;

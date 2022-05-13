@@ -2,15 +2,14 @@
     width: 30%;
     height: 36px;
     background: #2F2F2F;
-    margin: 50px auto 80px;
+    margin: 10px auto 10px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
-    color: #FFFFFF;
-    
+    color: #FFFFFF;  
 }
 
 .buttons-test:hover {

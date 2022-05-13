@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 
+
 import Header from '../Header/header';
 import Navigation from '../Navigation/Navigation';
 import Promo from '../Promo/Promo';
@@ -9,7 +10,9 @@ import Testing from '../Testing/Testing';
 import Interesting from '../Interesting/Interesting';
 import CityCard from '../CityCard/CityCard';
 import Footer from '../Footer/Footer';
-import ElementsTest from '../../utils/constans/ElementsTest';
+import ElementsTest from '../../utils/constans/Tests/ElementsTest';
+import ElementsTest2 from '../../utils/constans/Tests/ElementsTest2';
+import ElementsInteresting from '../../utils/constans/ElementsInteresting';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
@@ -180,6 +183,7 @@ function App() {
     localStorage.removeItem('jwt');
     setData(initialData);
     setLoggedIn(false);
+    setCards([])
     history.push('/signin');
   }
 
@@ -203,9 +207,11 @@ function App() {
           setCards(res)
         })
         .catch(err => console.log(err))
+    } 
+    else {
+      setCards(ElementsInteresting)
     }
   }, [loggedIn])
-
 
 
 
@@ -230,7 +236,8 @@ function App() {
               </Route>
               <Route path="/testing">
                 <Testing
-                  ElementsTest={ElementsTest} />
+                  ElementsTest={ElementsTest}
+                  ElementsTest2={ElementsTest2} />
               </Route>
               <Route path="/interesting">
                 <Interesting
@@ -239,12 +246,14 @@ function App() {
                   onCardDelete={handleCardDelete}
                   cards={cards}
                   onCityCardClick={handlCityCardClick}
+                  loggedIn={loggedIn}
                 />
               </Route>
               <Route path="/city">
                 <CityCard
                   card={cityCard}
                   onEditElement={handleEditElementClick}
+                  loggedIn={loggedIn}
                 />
               </Route>
 

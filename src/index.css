@@ -64,15 +64,23 @@
 @import url(./components/Testing/__title/testing__title.css);
 @import url(./components/Testing/__variant-button/testing__variant-button.css);
 @import url(./components/Testing/__variant-text/testing__variant-text.css);
-@import url(./components/Testing/__variants/testing__variants.css);
-
+@import url(./components/Testing/__variant/testing__variant.css);
+@import url(./components/Testing/__resultat/testing__resultat.css);
+@import url(./components/Testing/__numberQuestion/testing__numberQuestion.css);
+@import url(./components/Testing/__numberQuestion/_block/testing__numberQuestion_block.css);
+@import url(./components/Testing/__buttons/testing__buttons.css);
 
 @import url(./components/ButtonsTest/buttons-test.css);
 @import url(./components/ButtonsTest/_block/buttons-test_block.css);
+@import url(./components/ButtonsTest/_width/buttons-test_width.css);
+@import url(./components/ButtonsTest/_margin-top/buttons-test_margin-top.css);
 
 @import url(./components/Navigation/__container/navigation__container.css);
 @import url(./components/Navigation/__title/navigation__title.css);
 @import url(./components/Navigation/navigation.css);
+@import url(./components/Navigation/__title/_margin/navigation__title_margin.css);
+@import url(./components/Navigation/__container/_title/navigation__container_title.css);
+@import url(./components/Navigation/__text/navigation__text.css);
 
 
 @import url(./components/Interesting/__author/interesting__author.css);
@@ -80,6 +88,7 @@
 @import url(./components/Interesting/__button/_active/interesting__button_active.css);
 @import url(./components/Interesting/__buttons/interesting__buttons.css);
 @import url(./components/Interesting/__container/interesting__container.css);
+@import url(./components/Interesting/__container/_block/interesting__container_block.css);
 @import url(./components/Interesting/__container/_cursor/interesting__container_cursor.css);
 @import url(./components/Interesting/__containers/interesting__containers.css);
 @import url(./components/Interesting/__delete-button/interesting__delete-button.css);

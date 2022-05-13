@@ -1,3 +1,5 @@
 .testing__variant-text {
-    
+    font-weight: 400;
+    line-height: 1.1;
+    font-size: 20px;
 }

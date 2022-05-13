@@ -3,8 +3,12 @@ import Card from '../Card/Card';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useContext } from 'react';
 
-function Interesting({ onAddElement, cards, onCardLike, onCardDelete, onCityCardClick }) {
+function Interesting({ onAddElement, cards, onCardLike, onCardDelete, onCityCardClick, loggedIn }) {
     const currentUser = useContext(CurrentUserContext);
+
+    const interestingContainerClassName = (
+        `interesting__container interesting__container_cursor ${!loggedIn ? 'interesting__container_block' : ''}`
+    )
     return (
         <section className="interesting">
 
@@ -26,9 +30,10 @@ function Interesting({ onAddElement, cards, onCardLike, onCardDelete, onCityCard
                         onCardDelete={onCardDelete}
                         currentUser={currentUser}
                         handleClick={handleClick}
+                        loggedIn={loggedIn}
                     />)
                 })}
-                <div className="interesting__container interesting__container_cursor" onClick={onAddElement}>
+                <div className={interestingContainerClassName} onClick={onAddElement}>
                     <img className="interesting__image interesting__image_size" src={add} alt="Добавить еще" />
                     <div className="interesting__row">
                         <h2 className="interesting__title interesting__title_wrap" >Раскажи про свой город</h2>

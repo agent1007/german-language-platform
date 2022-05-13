@@ -3,16 +3,20 @@ import { useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
-function CityCard({ card, onEditElement }) {
+function CityCard({ card, onEditElement, loggedIn }) {
 
     const history = useHistory();
     const goBack = () => history.goBack();
 
     const currentUser = useContext(CurrentUserContext);
     const isOwn = card.owner === currentUser._id;
+   
+
     const cardEditButtonClassName = (
-        `city-card__button ${isOwn ? 'city-card__button' : 'card__delete-button_hidden'}`
-    );
+        `city-card__button ${loggedIn ?
+          (`city-card__button ${isOwn ? 'city-card__button' : 'card__delete-button_hidden'}`) : 'card__delete-button_hidden'}`);
+
+
     return (
 
         <section className="city-card">

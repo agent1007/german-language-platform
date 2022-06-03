@@ -1,6 +1,10 @@
-function ButtonTest ({handleClick, ButtonClassName, text}) {
+function ButtonTest({ handleClick, ButtonClassName, text }) {
+
+
     return (
-        <button type="button" className={ButtonClassName} onClick={handleClick}>{text}</button>
+        <button type="button" className={ButtonClassName} onClick={() => {
+            handleClick()
+        }} >{text}</button>
     );
 }
 

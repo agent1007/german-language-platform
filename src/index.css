@@ -62,13 +62,14 @@
 @import url(./components/Testing/__question/testing__question.css);
 @import url(./components/Testing/__submit-button/testing__submit-button.css);
 @import url(./components/Testing/__title/testing__title.css);
-@import url(./components/Testing/__variant-button/testing__variant-button.css);
-@import url(./components/Testing/__variant-text/testing__variant-text.css);
-@import url(./components/Testing/__variant/testing__variant.css);
 @import url(./components/Testing/__resultat/testing__resultat.css);
 @import url(./components/Testing/__numberQuestion/testing__numberQuestion.css);
 @import url(./components/Testing/__numberQuestion/_block/testing__numberQuestion_block.css);
 @import url(./components/Testing/__buttons/testing__buttons.css);
+
+@import url(./components/Variant/__button/variant__button.css);
+@import url(./components/Variant/__text/variant__text.css);
+@import url(./components/Variant/variant.css);
 
 @import url(./components/ButtonsTest/buttons-test.css);
 @import url(./components/ButtonsTest/_block/buttons-test_block.css);
@@ -144,3 +145,10 @@
 @import url(./components/Error/_visible/error_visible.css);
 @import url(./components/Error/error.css);
 
+@import url(./components/Users/users.css);
+
+@import url(./components/User/__info/user__info.css);
+@import url(./components/User/__name/user__name.css);
+@import url(./components/User/__resultats/user__resultats.css);
+@import url(./components/User/user.css);
+@import url(./components/User/__avatar/user__avatar.css);

@@ -13,6 +13,7 @@ function Navigation() {
                 {/* <Link to="/texts" className="navigation__title">Тексты</Link>
                 <Link to="/vocabulary" className="navigation__title">Лексика</Link> */}
                 <Link to="/interesting" className="navigation__title">Интересное</Link>
+                <Link to="/cheloveki" className="navigation__title">Человеки</Link>
             </div>
         </section>
     );

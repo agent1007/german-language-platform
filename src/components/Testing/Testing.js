@@ -1,10 +1,11 @@
 import ButtonsTest from '../../components/ButtonsTest/ButtonsTest';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useContext } from 'react';
 import Question from '../Question/Question';
 import { Link, Route } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Testing({ ElementsTest, ElementsTest2 }) {
-    
+function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
+    const currentUser = useContext(CurrentUserContext);
 
     const [test, setTest] = useState([]);
 
@@ -34,6 +35,7 @@ function Testing({ ElementsTest, ElementsTest2 }) {
         setCheck(false)
     }
 
+
     const handleClickEnd = () => {
         setResponsesCounter(check ? responsesCounter + 1 : responsesCounter)
         setDisplayAllQuestions([])
@@ -41,6 +43,7 @@ function Testing({ ElementsTest, ElementsTest2 }) {
         setFinalTest(true)
         setCheck(false)
     }
+
 
     const handleClickAgain = () => {
         setDisplayAllQuestions(partFiltred(allQuestions))
@@ -53,12 +56,22 @@ function Testing({ ElementsTest, ElementsTest2 }) {
 
     const outputResult = useCallback(() => {
         setResultat('Количество правильных ответов: ' + responsesCounter + ' из ' + allQuestions.length)
-
     }, [handleClickEnd])
+
+    const savedResultat = useCallback(() => {
+        recordResultat({
+            nameTest: test.testName,
+            nameUser: currentUser.name,
+            resultat: 'Количество правильных ответов: ' + responsesCounter + ' из ' + allQuestions.length,
+        })
+    }, [handleClickEnd])
+    
 
     useEffect(() => {
         const data = finalTest === true ? outputResult() : ''
-    }, [handleClickEnd])
+        const data1 = finalTest === true ? savedResultat() : ''
+    }, [finalTest])
+
 
     // классы кнопки ButtonNextQuestion
     const ButtonStartTestClassName = (
@@ -113,7 +126,7 @@ function Testing({ ElementsTest, ElementsTest2 }) {
                         className={linkNavigationClassName}
                         onClick={() => choiceTest(data.id)}
                     >
-                        {`- ${data.testName}` }
+                        {`- ${data.testName}`}
                     </Link>)
                 })}
             </div>
@@ -147,7 +160,8 @@ function Testing({ ElementsTest, ElementsTest2 }) {
                     <ButtonsTest
                         text="Закончить тест"
                         handleClick={handleClickEnd}
-                        ButtonClassName={ButtonFinishTestClassName} />
+                        ButtonClassName={ButtonFinishTestClassName}
+                        finalTest={finalTest} />
                     <ButtonsTest
                         text="Начать тест заново"
                         handleClick={handleClickAgain}

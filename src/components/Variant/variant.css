@@ -1,9 +1,9 @@
-.testing__variant {
+.variant {
     margin-bottom: 15px;
     border: 3px solid rgb(249, 241, 241);
     border-radius: 5px;
     padding: 10px;
 }
-.testing__variant:last-of-type {
+.variant:last-of-type {
     margin-bottom: 0;
 }

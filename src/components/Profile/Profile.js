@@ -9,7 +9,7 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
     const currentUser = useContext(CurrentUserContext);
     const [disabled, setDisabled] = useState(false);
 
-    const handleSubmita = (e) => {
+    const handleSignOut = (e) => {
         e.preventDefault();
         onSignOut()
         history.push('/');
@@ -95,7 +95,7 @@ function Profile({ onSignOut, onUpdateUser, isMovieLoadError, setIsMovieLoadErro
                 >Редактировать
                 </button>
             </form>
-            <button className="profile__close-button" onClick={handleSubmita}>Выйти из аккаунта</button>
+            <button className="profile__close-button" onClick={handleSignOut}>Выйти из аккаунта</button>
         </div>
     );
 }

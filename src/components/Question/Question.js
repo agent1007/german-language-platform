@@ -25,6 +25,7 @@ function Question({ questions, setCheck }) {
             <h3 className="testing__question">Как переводиться {questions.title}</h3>
             <div className="testing__container-variants">
                 {questions.variants.map(data => {
+                    
                     return (<Variant
                         key={data.id}
                         data={data}

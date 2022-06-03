@@ -9,6 +9,8 @@ import Reasons from '../Reasons/Reasons';
 import Testing from '../Testing/Testing';
 import Interesting from '../Interesting/Interesting';
 import CityCard from '../CityCard/CityCard';
+import ResultatsTest from '../ResultatsTest/ResultatsTest';
+
 import Footer from '../Footer/Footer';
 import ElementsTest from '../../utils/constans/Tests/ElementsTest';
 import ElementsTest2 from '../../utils/constans/Tests/ElementsTest2';
@@ -16,6 +18,7 @@ import ElementsInteresting from '../../utils/constans/ElementsInteresting';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
+import Users from '../Users/Users';
 import * as auth from '../../utils/auth';
 import api from '../../utils/api';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
@@ -45,6 +48,17 @@ function App() {
   const [isAddElementPopupOpen, setIsAddElementPopupOpen] = useState(false);
   // стейт элементов для EditElementPopup
   const [isEditElementPopupOpen, setIsEditElementPopupOpen] = useState(false);
+
+  const [resultats, setResultats] = useState([]);
+
+
+  const [users, setUsers] = useState([]);
+
+  
+
+
+
+
 
   function handleAddElementClick() {
     setIsAddElementPopupOpen(true);
@@ -96,6 +110,17 @@ function App() {
       )
       .catch(err => console.log(err))
   }
+
+  function recordResultat(data) {
+    api.addResultats(data)
+      .then(newResultats => {
+        setResultats([newResultats, ...resultats]);
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
+
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i === currentUser._id);
@@ -188,8 +213,6 @@ function App() {
   }
 
 
-
-
   useEffect(() => {
     if (loggedIn) {
       api.getUserData()
@@ -202,19 +225,43 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
+      api.getResultats()
+        .then(res => {
+          setResultats(res);
+        })
+        .catch(err => console.log(err))
+    }
+  }, [loggedIn])
+
+  useEffect(() => {
+    if (loggedIn) {
       api.getInitialCards()
         .then(res => {
           setCards(res)
         })
         .catch(err => console.log(err))
-    } 
+    }
     else {
       setCards(ElementsInteresting)
     }
   }, [loggedIn])
 
+  useEffect(() => {
+    api.getUsers()
+        .then(res => {
+            setUsers(res)
+        })
+        .catch(err => console.log(err))
+}, [])
 
-
+useEffect(() => {
+  api.getResultats()
+      .then(res => {
+          setResultats(res)
+      })
+      .catch(err => console.log(err))
+}, [])
+// console.log(resultats)
   return (
     <div className="App">
       <CurrentUserContext.Provider value={currentUser}>
@@ -237,7 +284,9 @@ function App() {
               <Route path="/testing">
                 <Testing
                   ElementsTest={ElementsTest}
-                  ElementsTest2={ElementsTest2} />
+                  ElementsTest2={ElementsTest2}
+                  recordResultat={recordResultat}
+                />
               </Route>
               <Route path="/interesting">
                 <Interesting
@@ -260,6 +309,20 @@ function App() {
               <Route path="/profile">
                 <Profile
                   onUpdateUser={handleUpdateUser} />
+              </Route>
+
+              <Route path="/cheloveki">
+                <Users
+                users={users}
+                />
+              </Route>
+
+              <Route path="/resultats">
+                <ResultatsTest
+                  resultats={resultats}
+                  setResultats={setResultats}
+                  users={users}
+                />
               </Route>
 
               <Route path="/signin">
@@ -291,15 +354,8 @@ function App() {
             onClose={closeAllPopups}
 
           />
-
-
         </div>
       </CurrentUserContext.Provider>
-
-
-
-
-
     </div>
   );
 }

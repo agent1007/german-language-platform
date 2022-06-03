@@ -19,6 +19,24 @@ class Api {
       .then((res) => this._requestResult(res))
   }
 
+  getResultats() {
+    return fetch(`${this._baseUrl}/resultats`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
+      .then((res) => this._requestResult(res))
+  }
+
+  getUsers() {
+    return fetch(`${this._baseUrl}/users`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
+      .then((res) => this._requestResult(res))
+  }
+
   getUserData() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
@@ -41,6 +59,22 @@ class Api {
         titleRu: data.titleRu,
         titleDeu: data.titleDeu,
         link: data.link
+      })
+    })
+      .then((res) => this._requestResult(res))
+  }
+
+  addResultats(data) {
+    return fetch(`${this._baseUrl}/resultats`, {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nameTest: data.nameTest,
+        nameUser: data.nameUser,
+        resultat: data.resultat,
       })
     })
       .then((res) => this._requestResult(res))

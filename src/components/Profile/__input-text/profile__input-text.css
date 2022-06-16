@@ -1,8 +1,15 @@
-.profile__input-text{
+.profile__input-text {
     font-weight: 500;
     font-size: 15px;
     line-height: 17px;
     color: #FFFFFF;
     margin: 0;
     width: 100%;
+}
+
+@media screen and (max-width: 767px) {    
+    .profile__input-text {
+        font-size: 12px;
+        line-height: 15px;
+    }
 }

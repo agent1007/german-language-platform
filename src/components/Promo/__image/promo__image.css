@@ -9,7 +9,28 @@
     border-radius: 5px;
 }
 
+@media screen and (max-width: 1024px) {    
+    .promo__image {
+        margin: 70px auto 42px;
+        width: 450px;
+        height: 446px;
+    }
+}
 
+@media screen and (max-width: 767px) {    
+    .promo__image {
+        width: 270px;
+        height: 266px;
+    }
+}
+
+
+@media screen and (max-width: 500px) {    
+    .promo__image {
+        
+        margin: 70px auto 42px;
+    }
+}
 
 @media screen and (max-width: 410px) {    
     .promo__image {
@@ -18,3 +39,4 @@
         margin: 70px auto 42px;
     }
 }
+

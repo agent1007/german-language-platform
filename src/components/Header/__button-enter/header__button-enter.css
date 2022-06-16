@@ -30,10 +30,12 @@
     }
 }
 
-@media screen and (max-width: 322px) {    
+
+@media screen and (max-width: 350px) {    
     .header__button-enter {
         width: 54px;
         height: 26px;
         margin: 19px 15px;
     }
 }
+

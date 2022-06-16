@@ -9,7 +9,16 @@
     color: #FFFFFF;
 }
 
-@media screen and (max-width: 769px) {    
+@media screen and (max-width: 1024px) {    
+    .promo__title {
+        font-size: 50px;
+        line-height: 55px;
+        text-align: center;
+        margin: 40px auto 0;
+    }
+}
+
+@media screen and (max-width: 767px) {    
     .promo__title {
         font-size: 40px;
         line-height: 50px;
@@ -18,9 +27,15 @@
     }
 }
 
-@media screen and (max-width: 410px) {    
+@media screen and (max-width: 580px) {    
     .promo__title {
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 410px) {    
+    .promo__title {
+        
         font-size: 30px;
         line-height: 38px;
         letter-spacing: -0.04em;

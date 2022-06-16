@@ -16,8 +16,8 @@
     transition: 1s linear;
 }
 
-@media screen and (max-width: 769px) {    
+@media screen and (max-width: 767px) {    
     .header__profile {
-        display: none;
+        width: 20px;
     }
 }

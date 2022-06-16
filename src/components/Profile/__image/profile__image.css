@@ -5,3 +5,10 @@
     border-radius: 20%; 
     cursor: pointer;
 }
+
+@media screen and (max-width: 550px) {    
+    .profile__image {
+        width: 220px;
+        height: 220px;
+    }
+}

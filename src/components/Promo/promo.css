@@ -7,12 +7,20 @@
     justify-content: space-between;
 }
 
-@media screen and (max-width: 910px) {    
+@media screen and (max-width: 1024px) {    
     .promo {
         flex-direction: column-reverse;
         padding-bottom: 75px;
     }
 }
+
+@media screen and (max-width: 650px) {    
+    .promo {
+        padding-bottom: 0;
+    }
+}
+
+
 @media screen and (max-width: 410px) {    
     .promo {
         padding-bottom: 30px;

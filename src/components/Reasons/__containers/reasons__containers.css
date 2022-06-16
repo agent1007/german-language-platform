@@ -6,7 +6,20 @@
     width: 90%;
 }
 
-@media screen and (max-width: 410px) {    
+@media screen and (max-width: 1024px) {    
+    .reasons__containers {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {    
+    .reasons__containers {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {    
     .reasons__containers {
         grid-template-columns: repeat(1, 1fr);
     }

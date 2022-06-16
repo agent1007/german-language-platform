@@ -9,3 +9,9 @@
     text-align: right;
     outline: none;
 }
+
+@media screen and (max-width: 767px) {    
+    .profile__input {
+        width: 340%;
+    }
+}

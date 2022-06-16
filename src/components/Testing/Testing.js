@@ -93,14 +93,14 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
         `buttons-test buttons-test_width ${((allQuestions[allQuestions.length - 1] || 0) !== (displayAllQuestions[displayAllQuestions.length - 1] || 0)) ? 'buttons-test_block' : ''}`
     )
     const ButtonAgainTestClassName = (
-        `buttons-test buttons-test_width ${(finalTest !== true) ? 'buttons-test_block' : ''}`
+        `buttons-test buttons-test_width buttons-test_height ${(finalTest !== true) ? 'buttons-test_block' : ''}`
     )
     const testingNumberQuestion = (
-        `testing__numberQuestion ${(questionCounter === 0) ? 'testing__numberQuestion_block' : ''}`
+        `testing__number-question ${(questionCounter === 0) ? 'testing__number-question_block' : ''}`
     )
 
     const linkNavigationClassName = (
-        `navigation__title navigation__text  ${(allQuestions.length !== 0) ? 'testing__numberQuestion_block' : ''}`
+        `navigation__title navigation__text  ${(allQuestions.length !== 0) ? 'testing__number-question_block' : ''}`
     )
 
     function choiceTest(id) {

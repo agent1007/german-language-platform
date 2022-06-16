@@ -8,8 +8,8 @@
 @import url(./components/Header/__container/header__container.css); 
 @import url(./components/Header/__button-enter/header__button-enter.css); 
 @import url(./components/Header/__button-register/header__button-register.css); 
-@import url(./components/Header/__button-testing/header__button-testing.css); 
-@import url(./components/Header/__testing/header__testing.css); 
+
+
 @import url(./components/Header/__profile-image/header__profile-image.css); 
 @import url(./components/Header/__profile-text/header__profile-text.css); 
 @import url(./components/Header/__profile/header__profile.css); 
@@ -64,8 +64,8 @@
 @import url(./components/Testing/__submit-button/testing__submit-button.css);
 @import url(./components/Testing/__title/testing__title.css);
 @import url(./components/Testing/__resultat/testing__resultat.css);
-@import url(./components/Testing/__numberQuestion/testing__numberQuestion.css);
-@import url(./components/Testing/__numberQuestion/_block/testing__numberQuestion_block.css);
+@import url(./components/Testing/__number-question/_block/testing__number-question_block.css);
+@import url(./components/Testing/__number-question/testing__number-question.css);
 @import url(./components/Testing/__buttons/testing__buttons.css);
 
 @import url(./components/Variant/__button/variant__button.css);
@@ -76,6 +76,7 @@
 @import url(./components/ButtonsTest/_block/buttons-test_block.css);
 @import url(./components/ButtonsTest/_width/buttons-test_width.css);
 @import url(./components/ButtonsTest/_margin-top/buttons-test_margin-top.css);
+@import url(./components/ButtonsTest/_height/buttons-test_height.css);
 
 @import url(./components/Navigation/__container/navigation__container.css);
 @import url(./components/Navigation/__title/navigation__title.css);

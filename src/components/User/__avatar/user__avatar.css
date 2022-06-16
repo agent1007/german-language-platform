@@ -4,3 +4,10 @@
     object-fit: cover;
     border-radius: 50%;
 }
+
+@media screen and (max-width: 650px) {    
+    .user__avatar {
+        width: 90px;
+        height: 90px;
+    }
+}

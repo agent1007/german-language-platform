@@ -16,7 +16,6 @@ function ResultatsTest({ resultats, userId }) {
                     <div className="user" key={resultat._id}>
                         <div className="user__info">
                             <div className="user__name">{resultat.nameTest}</div>
-                            <div className="user__name">{resultat.nameUser}</div>
                             <div className="user__name">{resultat.resultat}</div>
                         </div>
                     </div>)

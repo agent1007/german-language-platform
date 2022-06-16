@@ -5,9 +5,15 @@
     align-items: center;
 }
 
-@media screen and (max-width: 769px) {    
+@media screen and (max-width: 1024px) {    
     .profile__form {
-        width: 53%;
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 767px) {    
+    .profile__form {
+        width: 75%;
     }
 }
 

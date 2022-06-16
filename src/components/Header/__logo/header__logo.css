@@ -11,9 +11,13 @@
     transition: 1s linear;
 }
 
+@media screen and (max-width: 767px) {    
+    .header__logo {
+        margin-left: 30px;
+    }
+}
 
-
-@media screen and (max-width: 410px) {    
+@media screen and (max-width: 530px) {    
     .header__logo {
         margin-left: 14px;
     }

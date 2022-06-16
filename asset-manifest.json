@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/german-language-platform/static/css/main.a2cad056.css",
-    "main.js": "/german-language-platform/static/js/main.3497eb67.js",
+    "main.css": "/german-language-platform/static/css/main.91090afd.css",
+    "main.js": "/german-language-platform/static/js/main.94dfc759.js",
     "static/js/787.d239888c.chunk.js": "/german-language-platform/static/js/787.d239888c.chunk.js",
     "static/media/volgograd.jpg": "/german-language-platform/static/media/volgograd.7a24cd4281976263d22b.jpg",
     "static/media/moskau.jpg": "/german-language-platform/static/media/moskau.e92bd54a89dadd3effc9.jpg",
@@ -29,12 +29,12 @@
     "static/media/icon-account.svg": "/german-language-platform/static/media/icon-account.4a8d88d01f31c46294b8df42a4f9feaa.svg",
     "static/media/Vector-heartBlack.svg": "/german-language-platform/static/media/Vector-heartBlack.75438e944a43e4c0b404.svg",
     "static/media/close-icon.svg": "/german-language-platform/static/media/close-icon.61b629a4dc3574160af9.svg",
-    "main.a2cad056.css.map": "/german-language-platform/static/css/main.a2cad056.css.map",
-    "main.3497eb67.js.map": "/german-language-platform/static/js/main.3497eb67.js.map",
+    "main.91090afd.css.map": "/german-language-platform/static/css/main.91090afd.css.map",
+    "main.94dfc759.js.map": "/german-language-platform/static/js/main.94dfc759.js.map",
     "787.d239888c.chunk.js.map": "/german-language-platform/static/js/787.d239888c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a2cad056.css",
-    "static/js/main.3497eb67.js"
+    "static/css/main.91090afd.css",
+    "static/js/main.94dfc759.js"
   ]
 }

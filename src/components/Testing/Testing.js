@@ -19,6 +19,12 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
     const [displayAllQuestions, setDisplayAllQuestions] = useState([]);
     // счетчик правильных ответов
     const [responsesCounter, setResponsesCounter] = useState(0);
+
+    // счетчик правильных ответов
+    const [mix, setMix] = useState(false);
+
+
+
     // стейт результатов
     const [resultat, setResultat] = useState(['']);
 
@@ -33,6 +39,7 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
         setQuestionCounter(questionCounter + 1);
         setResponsesCounter(check ? responsesCounter + 1 : responsesCounter)
         setCheck(false)
+        setMix(false)
     }
 
 
@@ -42,6 +49,7 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
         setQuestionCounter(0)
         setFinalTest(true)
         setCheck(false)
+        setMix(false)
     }
 
 
@@ -52,6 +60,7 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
         setResultat([''])
         setCheck(false)
         setFinalTest(false)
+        setMix(false)
     }
 
     const outputResult = useCallback(() => {
@@ -65,7 +74,7 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
             resultat: 'Количество правильных ответов: ' + responsesCounter + ' из ' + allQuestions.length,
         })
     }, [handleClickEnd])
-    
+
 
     useEffect(() => {
         const data = finalTest === true ? outputResult() : ''
@@ -143,6 +152,8 @@ function Testing({ recordResultat, ElementsTest, ElementsTest2 }) {
                             key={data.id}
                             questions={data}
                             setCheck={setCheck}
+                            setMix={setMix}
+                            mix={mix}
                         />)
                     })}
                     <div className="testing__resultat">{resultat}</div>

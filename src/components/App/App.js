@@ -26,6 +26,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ImagePopup from '../Popup/ImagePopup';
 import AddElementPopup from '../AddElementPopup/AddElementPopup';
 import EditElementPopup from '../EditElementPopup/EditElementPopup';
+import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup';
 import ElementsReasons from '../../utils/constans/ElementsReasons';
 
 
@@ -48,13 +49,15 @@ function App() {
   const [isAddElementPopupOpen, setIsAddElementPopupOpen] = useState(false);
   // стейт элементов для EditElementPopup
   const [isEditElementPopupOpen, setIsEditElementPopupOpen] = useState(false);
+  // стейт элементов для EditAvatarPopupOpen
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
 
   const [resultats, setResultats] = useState([]);
 
 
   const [users, setUsers] = useState([]);
 
-  
+  const [userId, setUserId] = useState([]);
 
 
 
@@ -84,20 +87,34 @@ function App() {
   function handleUpdateUser(data) {
     api.editProfile(data)
       .then(data => {
-        let card = cards.find(e => e._id === data._id)
-        setCards(card);
+        setCurrentUser(data);
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
+  function handleUpdateAvatar(data) {
+    api.changeUserAvatar(data)
+      .then(data => {
+        setCurrentUser(data);
+        closeAllPopups()
       }
       )
       .catch(err => console.log(err))
   }
 
 
+
+  function handleEditAvatarClick() {
+    setIsEditAvatarPopupOpen(true);
+  }
   // функция закрытия любого попапа
   function closeAllPopups() {
     setSelectedElement(false);
     setIsInfoTooltip(false);
     setIsAddElementPopupOpen(false);
-    setIsEditElementPopupOpen(false)
+    setIsEditElementPopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
   }
 
 
@@ -145,7 +162,9 @@ function App() {
   function handleUpdateCard(card) {
     api.editCard(card)
       .then(data => {
-        setCurrentUser(data);
+        let card = cards.find(e => e._id === data._id)
+        setCards(card);
+        console.log(card)
       }
       )
       .catch(err => console.log(err))
@@ -247,21 +266,27 @@ function App() {
   }, [loggedIn])
 
   useEffect(() => {
-    api.getUsers()
+    if (loggedIn) {
+      api.getUsers()
         .then(res => {
-            setUsers(res)
+          setUsers(res)
         })
         .catch(err => console.log(err))
-}, [])
+    }
+  }, [loggedIn])
 
-useEffect(() => {
-  api.getResultats()
-      .then(res => {
+  useEffect(() => {
+    if (loggedIn) {
+      api.getResultats()
+        .then(res => {
           setResultats(res)
-      })
-      .catch(err => console.log(err))
-}, [])
-// console.log(resultats)
+        })
+        .catch(err => console.log(err))
+    }
+  }, [loggedIn])
+
+
+
   return (
     <div className="App">
       <CurrentUserContext.Provider value={currentUser}>
@@ -308,12 +333,16 @@ useEffect(() => {
 
               <Route path="/profile">
                 <Profile
-                  onUpdateUser={handleUpdateUser} />
+                  onUpdateUser={handleUpdateUser}
+                  onEditAvatar={handleEditAvatarClick}
+                  onSignOut={handleSignOut} />
               </Route>
 
               <Route path="/cheloveki">
                 <Users
-                users={users}
+                  users={users}
+                  setUserId={setUserId}
+                  loggedIn={loggedIn}
                 />
               </Route>
 
@@ -322,6 +351,7 @@ useEffect(() => {
                   resultats={resultats}
                   setResultats={setResultats}
                   users={users}
+                  userId={userId}
                 />
               </Route>
 
@@ -352,7 +382,11 @@ useEffect(() => {
           <ImagePopup
             card={selectedElement}
             onClose={closeAllPopups}
-
+          />
+          <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
           />
         </div>
       </CurrentUserContext.Provider>

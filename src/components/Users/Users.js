@@ -1,17 +1,21 @@
 import User from '../User/User';
 
 
-function Users({users}) {
-    console.log(users)
+function Users({ users, setUserId, loggedIn }) {
+
 
     return (
         <section className="users">
-            {users.map(user => {
-                return (<User
-                    key={user._id}
-                    user={user}
-                />)
-            })}
+            {loggedIn ? (
+                users.map(user => {
+                    return (<User
+                        key={user._id}
+                        user={user}
+                        setUserId={setUserId}
+                    />)
+                })) : (
+                <div className="user__loggedIn">Чтобы видеть всех зарегистрированных пользователей необходимо зарегистрироваться.</div>
+            )}
         </section>
     );
 }

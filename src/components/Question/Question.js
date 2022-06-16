@@ -1,31 +1,29 @@
 import Variant from '../Variant/Variant';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 
-function Question({ questions, setCheck }) {
+function Question({ questions, setCheck, mix, setMix }) {
 
-    // const shuffle = useCallback((arr) => {
-    //     var j, temp;
-    //     for (var i = arr.length - 1; i > 0; i--) {
-    //         j = Math.floor(Math.random() * (i + 1));
-    //         temp = arr[j];
-    //         arr[j] = arr[i];
-    //         arr[i] = temp;
-    //     }
-    //     return arr;
+    const shuffle = useCallback((arr) => {
+        setMix(true)
+        var j, temp;
+        for (var i = arr.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+        return arr;
+    }, [setMix])
 
 
-    // }, [])
-
-
-    // const variants = shuffle(questions.variants)
+    const variants = mix === false ? shuffle(questions.variants) : questions.variants
 
 
     return (
         <>
             <h3 className="testing__question">Как переводиться {questions.title}</h3>
             <div className="testing__container-variants">
-                {questions.variants.map(data => {
-                    
+                {variants.map(data => {
                     return (<Variant
                         key={data.id}
                         data={data}

@@ -1,13 +1,12 @@
 
 
 
-function ResultatsTest({ resultats, users }) {
+function ResultatsTest({ resultats, userId }) {
 
 
-    const filterResultats = resultats.filter((data) => { 
-        // console.log(data.owner)
-        // console.log(users._id)
-        return data.owner === users._id })
+    const filterResultats = resultats.filter((data) => {
+        return data.owner === userId
+    })
 
 
     return (

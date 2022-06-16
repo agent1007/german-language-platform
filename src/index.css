@@ -42,7 +42,6 @@
 @import url(./components/Popup/_type/_add-card/popup_type_add-card.css);
 @import url(./components/Popup/__container-image/popup__container-image.css);
 @import url(./components/Popup/__container/popup__container.css);
-@import url(./components/Popup/__container/_edit-city-card/popup__container_edit-city-card.css);
 @import url(./components/Popup/__title/popup__title.css);
 @import url(./components/Popup/__title/_add-card/popup__title_add-card.css);
 @import url(./components/Popup/__image/popup__image.css);
@@ -54,6 +53,8 @@
 @import url(./components/Popup/__info/_subtitle-add-card/popup__info_subtitle-add-card.css);
 @import url(./components/Popup/__submit-button/popup__submit-button.css);
 @import url(./components/Popup/__submit-button/_add-card/popup__submit-button_add-card.css);
+@import url(./components/Popup/__container/_type/_avatar/popup__container_type_avatar.css);
+@import url(./components/Popup/__container/_type/_add-card/popup__container_add-card.css);
 
 
 @import url(./components/Testing/testing.css);
@@ -130,10 +131,14 @@
 @import url(./components/Profile/__input-text/profile__input-text.css);
 @import url(./components/Profile/__input/profile__input.css);
 @import url(./components/Profile/__inputs/profile__inputs.css);
+@import url(./components/Profile/__inputs/_active/profile__inputs_active.css);
 @import url(./components/Profile/__loading/profile__loading.css);
 @import url(./components/Profile/__submit-button/_disabled/profile__submit-button_disabled.css);
 @import url(./components/Profile/__submit-button/profile__submit-button.css);
 @import url(./components/Profile/__title/profile__title.css);
+@import url(./components/Profile/__image/profile__image.css);
+@import url(./components/Profile/__form-container/profile__form-container.css);
+@import url(./components/Profile/__submit-button-container/profile__submit-button-container.css);
 @import url(./components/Profile/profile.css);
 
 @import url(./components/Card/__button/card__button.css);
@@ -152,3 +157,4 @@
 @import url(./components/User/__resultats/user__resultats.css);
 @import url(./components/User/user.css);
 @import url(./components/User/__avatar/user__avatar.css);
+@import url(./components/User/__loggedIn/user__loggedIn.css);

@@ -2,7 +2,6 @@ function Variant({ data, setCheck }) {
 
     const choiceResponse = () => {
         setCheck('flag' in data ? true : false)
-        console.log(data.id)
     }
     
     return (

@@ -1,0 +1,6 @@
+.profile__form-container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin-bottom: 130px;
+}

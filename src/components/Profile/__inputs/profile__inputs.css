@@ -1,6 +1,8 @@
 .profile__inputs{
-    margin-bottom: 220px;
-    width: 100%;
+    margin-left: 10px;
+    width: 70%;
+    align-self: center;
+    padding: 10px;
 }
 
 @media screen and (max-width: 769px) {    
